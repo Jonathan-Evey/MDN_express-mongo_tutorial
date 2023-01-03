@@ -1,0 +1,3 @@
+delete pages for Book, and BookInstance
+
+update pages for BookInstance, and Author
