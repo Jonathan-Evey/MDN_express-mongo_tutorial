@@ -39,6 +39,17 @@ AuthorSchema.virtual('date_of_birth_formatted').get(function () {
 		return 'Unknown';
 	}
 });
+
+AuthorSchema.virtual('date_of_birth_edit').get(function () {
+	if (this.date_of_birth) {
+		return DateTime.fromJSDate(this.date_of_birth)
+			.setLocale('en-US')
+			.toFormat("yyyy'-'LL'-'dd");
+	} else {
+		return;
+	}
+});
+
 AuthorSchema.virtual('date_of_death_formatted').get(function () {
 	if (this.date_of_death) {
 		return DateTime.fromJSDate(this.date_of_death).toLocaleString(
@@ -50,6 +61,16 @@ AuthorSchema.virtual('date_of_death_formatted').get(function () {
 		} else {
 			return 'Unknown';
 		}
+	}
+});
+
+AuthorSchema.virtual('date_of_death_edit').get(function () {
+	if (this.date_of_death) {
+		return DateTime.fromJSDate(this.date_of_death)
+			.setLocale('en-US')
+			.toFormat("yyyy'-'LL'-'dd");
+	} else {
+		return;
 	}
 });
 
