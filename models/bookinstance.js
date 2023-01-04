@@ -33,5 +33,13 @@ BookInstanceSchema.virtual('due_back_formatted').get(function () {
 	}
 });
 
+BookInstanceSchema.virtual('due_back_edit').get(function () {
+	if (this.due_back) {
+		return DateTime.fromJSDate(this.due_back)
+			.setLocale('en-US')
+			.toFormat("yyyy'-'LL'-'dd");
+	}
+});
+
 // Export model
 module.exports = mongoose.model('BookInstance', BookInstanceSchema);

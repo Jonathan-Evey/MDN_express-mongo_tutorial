@@ -1,3 +1,1 @@
-delete pages for Book
-
-update pages for BookInstance, and Author
+update pages for and Author
